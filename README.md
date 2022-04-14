@@ -1,10 +1,10 @@
 # Qt_posprogram
 
-![image](https://user-images.githubusercontent.com/95518178/163491718-01bfccac-4856-4c07-93ac-db5c474e7ff8.png)
-! [이미지] (https://user-images.githubusercontent.com/95518178/163491532-39aeeceb-686a-4c13-bf98-dbfe17922ade.png)
-![image](https://user-images.githubusercontent.com/95518178/163491543-06deaba4-e938-4e51-b327-428996e626a7.png)
-![image](https://user-images.githubusercontent.com/95518178/163491549-6e5871a9-308f-41fa-95b1-eb1580d12452.png)
-![image](https://user-images.githubusercontent.com/95518178/163491553-151e99df-4fc7-4d7e-a067-30793ade533a.png)
-![image](https://user-images.githubusercontent.com/95518178/163491557-1bd349ad-891e-47db-8b2a-45a7c01392fd.png)
-![image](https://user-images.githubusercontent.com/95518178/163491561-0ccc209f-1a0b-457c-83ce-3018037f1e0c.png)
-![image](https://user-images.githubusercontent.com/95518178/163491563-cf054ee9-c959-462b-9190-4ef3c9fee770.png)
+판매화면
+! [이미지] (https://user-images.githubusercontent.com/95518178/163491718-01bfccac-4856-4c07-93ac-db5c474e7ff8.png)
+![image](https://user-images.githubusercontent.com/95518178/163491762-503b6724-be9c-4de0-b471-655415bd640f.png)
+![image](https://user-images.githubusercontent.com/95518178/163491836-6b08e090-f7e3-4e6f-a6e4-80d12a3232d6.png)
+![image](https://user-images.githubusercontent.com/95518178/163491856-5737c3a8-b1ee-4223-95eb-0703cb613d5f.png)
+![image](https://user-images.githubusercontent.com/95518178/163491879-573a0f84-3f34-4042-a2d9-eef705faa478.png)
+![image](https://user-images.githubusercontent.com/95518178/163491886-5676f643-c5a9-40c1-8ce1-3b0a9c98ada1.png)
+![image](https://user-images.githubusercontent.com/95518178/163491890-a177834c-8edc-4e09-9075-9eed6ff4c2c6.png)
