@@ -46,8 +46,9 @@ MainWindow::MainWindow(QWidget *parent)
 //    ui->product_table->hideColumn(0);
     ui->logo->show();
     ui->product_table->hide();
-    ui->look_table->hide();
-    ui->basketist_table->hide();
+    ui->iv_table->hide();
+    ui->p_table->hide();
+    ui->basketlist_table->hide();
     ui->salelist_label->hide();
     ui->pay_table->hide();
     ui->payhistory_label->hide();
@@ -57,11 +58,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->acancelbtn->hide();
     ui->paybtn->hide();
     ui->combobox->hide();
-    ui->all_lookbtn->hide();
-    ui->product_lookbtn->hide();
+    ui->iv_lookbtn->hide();
+    ui->p_lookbtn->hide();
     ui->product_addbtn->hide();
     ui->product_deletebtn->hide();
     ui->product_changebtn->hide();
+    ui->inventory_addbtn->hide();
 }
 
 MainWindow::~MainWindow()
@@ -73,8 +75,9 @@ void MainWindow::on_salebtn_clicked()
 {
     ui->logo->hide();
     ui->product_table->show();
-    ui->look_table->hide();
-    ui->basketist_table->show();
+    ui->iv_table->hide();
+    ui->p_table->hide();
+    ui->basketlist_table->show();
     ui->pay_table->hide();
     ui->payhistory_label->hide();
     ui->salelist_label->show();
@@ -84,11 +87,12 @@ void MainWindow::on_salebtn_clicked()
     ui->pcancelbtn->hide();
     ui->acancelbtn->hide();
     ui->paybtn->show();
-    ui->all_lookbtn->hide();
-    ui->product_lookbtn->hide();
+    ui->iv_lookbtn->hide();
+    ui->p_lookbtn->hide();
     ui->product_addbtn->hide();
     ui->product_deletebtn->hide();
     ui->product_changebtn->hide();
+    ui->inventory_addbtn->hide();
    // ui->product_table->clear
 }
 
@@ -96,8 +100,9 @@ void MainWindow::on_lookbtn_clicked()
 {
     ui->logo->hide();
     ui->product_table->hide();
-    ui->look_table->show();
-    ui->basketist_table->hide();
+    ui->iv_table->hide();
+    ui->p_table->show();
+    ui->basketlist_table->hide();
     ui->pay_table->hide();
     ui->payhistory_label->hide();
     ui->salelist_label->hide();
@@ -107,41 +112,113 @@ void MainWindow::on_lookbtn_clicked()
     ui->pcancelbtn->hide();
     ui->acancelbtn->hide();
     ui->paybtn->hide();
-    ui->all_lookbtn->show();
-    ui->product_lookbtn->show();
+    ui->iv_lookbtn->show();
+    ui->p_lookbtn->show();
     ui->product_addbtn->show();
     ui->product_deletebtn->show();
     ui->product_changebtn->show();
+    ui->inventory_addbtn->show();
 }
 
 void MainWindow::on_paybtn_clicked()
 {
     ui->logo->hide();
     ui->product_table->hide();
-    ui->look_table->hide();
-    ui->basketist_table->hide();
+    ui->iv_table->hide();
+    ui->p_table->hide();
+    ui->basketlist_table->hide();
     ui->pay_table->show();
     ui->payhistory_label->show();
     ui->salelist_label->hide();
     ui->basketlist_label->hide();
     ui->cartegpry_label->hide();
     ui->combobox->hide();
+
+
+    int index = ui->product_table->currentRow();
+    QString code, S_paylist, p_code;                            //쿼리문 전달할 변수
+    QSqlQuery query;
+
+    query.prepare("select (product_code) from product where product_name= '"+p_name[index]+"'");
+    query.exec();                                     //실행
+    query.next();
+    p_code=query.value(0).toString();
+
+    query.prepare("select p.product_name as '상품명', p.product_sale as '가격', i.inventory_life as '유통기한', i.inventory_number as '수량' from product p join inventory i on p.product_code = i.product_code where p.product_code = '"+p_code+"'");
+    query.exec();                                     //실행
+
+    query.prepare("UPDATE inventory SET inventory_number = inventory_number-1 WHERE product_code = '"+p_code+"'");
+    query.exec();                                     //실행
+
+    S_paylist=QString::number(paylist);
+
+    query.prepare("insert into paylist (pay_amount) values('"+S_paylist+"')");
+    query.exec();                                     //실행
+
+    ui->pay_table->setColumnCount(3);
+    ui->pay_table->setRowCount(1);
+    ui->pay_table->setItem(0, 0, new QTableWidgetItem("총 결제금액"));
+    ui->pay_table->setItem(0, 1, new QTableWidgetItem("1"));
+    ui->pay_table->setItem(0, 2, new QTableWidgetItem(S_paylist));
+
+//    qDebug()<<paylist;
+
 }
 
-void MainWindow::on_all_lookbtn_clicked()
+void MainWindow::on_iv_lookbtn_clicked()
 {
-    model->setTable("product");    // 테이블명
-    ui->look_table->setModel(model);
-    //ui->product_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->iv_table->show();
+    ui->p_table->hide();
+
+    iv_name.clear();
+    iv_sale.clear();
+    iv_life.clear();
+    iv_number.clear();
+
+    QString select_query;                            //쿼리문 전달할 변수
+    QSqlQuery query;
+
+    select_query=QString("select p.product_name as '상품명', p.product_sale as '가격', i.inventory_life as '유통기한', i.inventory_number as '수량' from product p join inventory i on p.product_code = i.product_code"); //쿼리문 저장-분류에 맞는 컬럼값들 가져오기
+    query.prepare(select_query);                         //준비
+    query.exec();                                     //실행
+
+    int count=0;
+    while(query.next()){                                //가져온상태.next()함수로 첫번째 변수를 가져옴
+        iv_name.append(query.value(0).toString());
+        iv_sale.append(query.value(1).toString());
+        iv_life.append(query.value(2).toString());
+        iv_number.append(query.value(3).toString());
+        count++;
+    }
+
+    for(int i=0; i<count; i++){
+        ui->iv_table->setColumnCount(4);
+        ui->iv_table->setRowCount(count);
+//        ui->iv_table->setColumnWidth(0, 70);
+//        ui->iv_table->setColumnWidth(1, 70);
+//        ui->iv_table->setColumnWidth(2, 70);
+//        ui->iv_table->setColumnWidth(3, 70);
+
+        ui->iv_table->setItem(i, 0, new QTableWidgetItem(iv_name[i]));
+        ui->iv_table->setItem(i, 1, new QTableWidgetItem(iv_sale[i]));
+        ui->iv_table->setItem(i, 2, new QTableWidgetItem(iv_life[i]));
+        ui->iv_table->setItem(i, 3, new QTableWidgetItem(iv_number[i]));
+    }
+
+}
+
+void MainWindow::on_p_lookbtn_clicked()
+{
+    ui->iv_table->hide();
+    ui->p_table->show();
+
+    model->setTable("product");
+    ui->p_table->setModel(model);
     model->select();
     model->setHeaderData(0, Qt::Horizontal, "상품코드");
     model->setHeaderData(1, Qt::Horizontal, "상품명");
     model->setHeaderData(2, Qt::Horizontal, "상품가격");
-    model->setHeaderData(3, Qt::Horizontal, "분류");
-}
-
-void MainWindow::on_product_lookbtn_clicked()
-{
+    model->setHeaderData(3, Qt::Horizontal, "카테고리");
 }
 
 void MainWindow::on_product_addbtn_clicked()
@@ -156,13 +233,17 @@ void MainWindow::on_product_deletebtn_clicked()
 
 void MainWindow::on_product_changebtn_clicked()
 {
+    c = new change(this);
+    c->show();
 }
 
 void MainWindow::on_combobox_activated(int index)
 {
+    p_name.clear();
+    p_sale.clear();
+
     QString select_query, code, c_code, cartegory;                            //쿼리문 전달할 변수
     QSqlQuery query;
-    QList<QString> p_name, p_sale, btn_return_name, btn_return_sale;
 
     cartegory = ui->combobox->currentText();
     code=QString("select cartegory_code from cartegory where cartegory_name='"+cartegory+"'");
@@ -183,8 +264,6 @@ void MainWindow::on_combobox_activated(int index)
     }
 
 //    qDebug()<<query.record().count();
-//    qDebug()<<p_name;
-//    qDebug()<<p_sale;
 
     for(int i=0; i<count; i++){
         btn = new QPushButton("추가", this);
@@ -195,17 +274,38 @@ void MainWindow::on_combobox_activated(int index)
         ui->product_table->setItem(i, 1, new QTableWidgetItem(p_sale[i]));
         ui->product_table->setColumnWidth(2, 60);
         ui->product_table->setCellWidget(i, 2, btn);
-        //connect(btn, &QPushButton::clicked, this, &MainWindow::Onlistbtn_sensor_click);
-        //btn_return_name[i] = ui->product_table->item(i, 0)->text();
-       // btn_return_sale[i] = ui->product_table->item(i, 1)->text();
+        connect(btn, SIGNAL(clicked()), this, SLOT(Onlistbtn_sensor_click()));
     }
-    qDebug()<<btn_return_name[0];
+
 }
 
 void MainWindow::Onlistbtn_sensor_click(){
-    /*QPushButton *w = qobject_cast<QPushButton *>(sender());
-    if(w){
-        int row = ui->product_table->indexAt(w->pos()).row();
-        std::cout << row;
-    }*/
+    int index = ui->product_table->currentRow();
+    int sale;
+
+    btn = new QPushButton("삭제", this);
+    ui->basketlist_table->setColumnCount(4);
+    ui->basketlist_table->setRowCount(j+1);
+    ui->basketlist_table->setColumnWidth(0, 80);
+    ui->basketlist_table->setItem(j, 0, new QTableWidgetItem(p_name[index]));
+    ui->basketlist_table->setColumnWidth(1, 40);
+    ui->basketlist_table->setItem(j, 1, new QTableWidgetItem(p_sale[index]));
+    ui->basketlist_table->setColumnWidth(2, 30);
+    ui->basketlist_table->setItem(j, 2, new QTableWidgetItem());
+    ui->basketlist_table->setColumnWidth(3, 40);
+    ui->basketlist_table->setCellWidget(j, 3, btn);
+    j++;
+
+    sale=p_sale[index].toInt();
+    paylist += sale;
 }
+
+void MainWindow::on_inventory_addbtn_clicked()
+{
+    ia = new inventory_add(this);
+    ia->show();
+
+}
+
+
+

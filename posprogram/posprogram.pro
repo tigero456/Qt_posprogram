@@ -9,17 +9,23 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    change.cpp \
+    inventory_add.cpp \
     look.cpp \
     main.cpp \
     mainwindow.cpp \
     sale.cpp
 
 HEADERS += \
+    change.h \
+    inventory_add.h \
     look.h \
     mainwindow.h \
     sale.h
 
 FORMS += \
+    change.ui \
+    inventory_add.ui \
     look.ui \
     mainwindow.ui \
     sale.ui

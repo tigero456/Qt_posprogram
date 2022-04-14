@@ -14,25 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="product_lookbtn">
-    <property name="geometry">
-     <rect>
-      <x>495</x>
-      <y>350</y>
-      <width>100</width>
-      <height>44</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>상품 조회</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="all_lookbtn">
+   <widget class="QPushButton" name="p_lookbtn">
     <property name="geometry">
      <rect>
       <x>495</x>
@@ -47,14 +29,32 @@
      </font>
     </property>
     <property name="text">
-     <string>전체 조회</string>
+     <string>상품 조회</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="iv_lookbtn">
+    <property name="geometry">
+     <rect>
+      <x>495</x>
+      <y>150</y>
+      <width>100</width>
+      <height>44</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>재고 조회</string>
     </property>
    </widget>
    <widget class="QPushButton" name="product_addbtn">
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>300</y>
+      <y>350</y>
       <width>100</width>
       <height>44</height>
      </rect>
@@ -72,7 +72,7 @@
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>250</y>
+      <y>300</y>
       <width>100</width>
       <height>44</height>
      </rect>
@@ -154,7 +154,7 @@
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>200</y>
+      <y>250</y>
       <width>100</width>
       <height>44</height>
      </rect>
@@ -203,18 +203,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="lookbtn_4">
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>발주</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="lookbtn_3">
        <property name="font">
         <font>
@@ -251,16 +239,6 @@
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QTableView" name="basketist_table">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>40</y>
-      <width>221</width>
-      <height>251</height>
-     </rect>
-    </property>
    </widget>
    <widget class="QLabel" name="salelist_label">
     <property name="geometry">
@@ -317,26 +295,6 @@
      <string>카테고리</string>
     </property>
    </widget>
-   <widget class="QTableView" name="look_table">
-    <property name="geometry">
-     <rect>
-      <x>14</x>
-      <y>9</y>
-      <width>461</width>
-      <height>381</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTableView" name="pay_table">
-    <property name="geometry">
-     <rect>
-      <x>14</x>
-      <y>39</y>
-      <width>461</width>
-      <height>350</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="payhistory_label">
     <property name="geometry">
      <rect>
@@ -383,6 +341,64 @@
     <property name="text">
      <string>Qt
 POS Program</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="basketlist_table">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>40</y>
+      <width>221</width>
+      <height>251</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="inventory_addbtn">
+    <property name="geometry">
+     <rect>
+      <x>495</x>
+      <y>100</y>
+      <width>100</width>
+      <height>44</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>발주</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="iv_table">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>9</y>
+      <width>461</width>
+      <height>381</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableView" name="p_table">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>9</y>
+      <width>461</width>
+      <height>381</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="pay_table">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>39</y>
+      <width>461</width>
+      <height>350</height>
+     </rect>
     </property>
    </widget>
   </widget>
