@@ -1,6 +1,6 @@
 # Qt_posprogram
 
-![image](https://user-images.githubusercontent.com/95518178/163491580-c3015305-c27d-4d14-bea7-9faf0cd106f2.png)
+![image](https://user-images.githubusercontent.com/95518178/163491718-01bfccac-4856-4c07-93ac-db5c474e7ff8.png)
 ! [이미지] (https://user-images.githubusercontent.com/95518178/163491532-39aeeceb-686a-4c13-bf98-dbfe17922ade.png)
 ![image](https://user-images.githubusercontent.com/95518178/163491543-06deaba4-e938-4e51-b327-428996e626a7.png)
 ![image](https://user-images.githubusercontent.com/95518178/163491549-6e5871a9-308f-41fa-95b1-eb1580d12452.png)
