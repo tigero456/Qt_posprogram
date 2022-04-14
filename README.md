@@ -1,10 +1,10 @@
 # Qt_posprogram
 
-![image](https://user-images.githubusercontent.com/95518178/163491937-a448dfa8-1762-4e74-8d9d-f07a9e6c2758.png)
-! [이미지] (https://user-images.githubusercontent.com/95518178/163491923-d87e77cd-5c08-4ed7-aa48-472b088a9bc8.png)
+![image](https://user-images.githubusercontent.com/95518178/163492055-110b7c42-1533-464b-b7e9-d1fe9faad1fb.png)
 ![image](https://user-images.githubusercontent.com/95518178/163491762-503b6724-be9c-4de0-b471-655415bd640f.png)
-![image](https://user-images.githubusercontent.com/95518178/163491836-6b08e090-f7e3-4e6f-a6e4-80d12a3232d6.png)
-![image](https://user-images.githubusercontent.com/95518178/163491856-5737c3a8-b1ee-4223-95eb-0703cb613d5f.png)
-![image](https://user-images.githubusercontent.com/95518178/163491879-573a0f84-3f34-4042-a2d9-eef705faa478.png)
-![image](https://user-images.githubusercontent.com/95518178/163491886-5676f643-c5a9-40c1-8ce1-3b0a9c98ada1.png)
-![image](https://user-images.githubusercontent.com/95518178/163491890-a177834c-8edc-4e09-9075-9eed6ff4c2c6.png)
+![image](https://user-images.githubusercontent.com/95518178/163492125-da8c555d-6201-4fa8-afe1-1fc6cb44f062.png)
+![image](https://user-images.githubusercontent.com/95518178/163492143-8ebab81b-63ac-43c4-bd8e-66dc547ae4d2.png)
+![image](https://user-images.githubusercontent.com/95518178/163492158-aac1db9b-7d5e-4eeb-883a-f4d77eb79826.png)
+![image](https://user-images.githubusercontent.com/95518178/163492164-727f51da-0514-4f4c-979a-b90e51065340.png)
+![image](https://user-images.githubusercontent.com/95518178/163492169-57aee202-767a-4a03-9cef-fd3504bcff8f.png)
+
