@@ -14,21 +14,24 @@ SOURCES += \
     look.cpp \
     main.cpp \
     mainwindow.cpp \
-    sale.cpp
+    sale.cpp \
+    trash.cpp
 
 HEADERS += \
     change.h \
     inventory_add.h \
     look.h \
     mainwindow.h \
-    sale.h
+    sale.h \
+    trash.h
 
 FORMS += \
     change.ui \
     inventory_add.ui \
     look.ui \
     mainwindow.ui \
-    sale.ui
+    sale.ui \
+    trash.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

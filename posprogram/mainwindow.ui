@@ -36,7 +36,7 @@
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>150</y>
+      <y>180</y>
       <width>100</width>
       <height>44</height>
      </rect>
@@ -173,7 +173,7 @@
      <rect>
       <x>0</x>
       <y>400</y>
-      <width>481</width>
+      <width>495</width>
       <height>47</height>
      </rect>
     </property>
@@ -199,18 +199,6 @@
        </property>
        <property name="text">
         <string>조회</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="lookbtn_3">
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>폐기</string>
        </property>
       </widget>
      </item>
@@ -357,7 +345,7 @@ POS Program</string>
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>100</y>
+      <y>130</y>
       <width>100</width>
       <height>44</height>
      </rect>
@@ -401,6 +389,127 @@ POS Program</string>
      </rect>
     </property>
    </widget>
+   <widget class="QTableWidget" name="soon_t_table">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>119</y>
+      <width>461</width>
+      <height>271</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="trashbtn">
+    <property name="geometry">
+     <rect>
+      <x>495</x>
+      <y>60</y>
+      <width>100</width>
+      <height>44</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>폐기 조회</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="soon_trashbtn">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>70</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>유통기한 임박 상품</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="today_date_label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>10</y>
+      <width>361</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>40</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>ㅎㅇ</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="t_table">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>119</y>
+      <width>461</width>
+      <height>271</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="now_trashbtn">
+    <property name="geometry">
+     <rect>
+      <x>204</x>
+      <y>70</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>유통기한 지난 상품</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="now_t_table">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>119</y>
+      <width>461</width>
+      <height>271</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="t_btn">
+    <property name="geometry">
+     <rect>
+      <x>384</x>
+      <y>70</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>폐기 상품</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -408,7 +517,7 @@ POS Program</string>
      <x>0</x>
      <y>0</y>
      <width>603</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
