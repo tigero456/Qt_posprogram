@@ -31,18 +31,22 @@ inventory_add::~inventory_add()
 
 void inventory_add::on_addbtn_clicked()
 {
-    QString number, product, cartegory, p_code, c_code;
-    int life=0;
+    QString number, product, cartegory, p_namecode, c_code, sql_life, p_code;
     QSqlQuery q;
+
+    sql_life.clear();
+
+    QDate code_life, stCurrentDate = QDate::currentDate();
 
     number = ui->saleEdit->text();
     product = ui->product_comboBox->currentText();
     cartegory = ui->cartagory_comboBox->currentText();
 
+
     q.prepare("select product_code from product where product_name = '"+product+"'");                 //준비
     q.exec();                            //실행
     q.next();
-    p_code=q.value(0).toString();
+    p_namecode=q.value(0).toString();
 
     q.prepare("select cartegory_code from cartegory where cartegory_name = '"+cartegory+"'");                 //준비
     q.exec();                            //실행
@@ -50,43 +54,138 @@ void inventory_add::on_addbtn_clicked()
     c_code=q.value(0).toString();
 
     if(c_code.toInt()==1){
-        life=180;
+        stCurrentDate = stCurrentDate.addDays(180);
+        code_life=stCurrentDate;        //DB에 저장된 유통기한
+
+        q.prepare("select date_add(curdate(), interval 180 day)");                 //준비
+        q.exec();                            //실행
+        q.next();
+        sql_life=q.value(0).toString();
     }
     else if(c_code.toInt()==2){
-        life=180;
+        stCurrentDate = stCurrentDate.addDays(180);
+        code_life=stCurrentDate;        //DB에 저장된 유통기한
+
+        q.prepare("select date_add(curdate(), interval 180 day)");                 //준비
+        q.exec();                            //실행
+        q.next();
+        sql_life=q.value(0).toString();
     }
     else if(c_code.toInt()==3){
-        life=180;
+        stCurrentDate = stCurrentDate.addDays(180);
+        code_life=stCurrentDate;        //DB에 저장된 유통기한
+
+        q.prepare("select date_add(curdate(), interval 180 day)");                 //준비
+        q.exec();                            //실행
+        q.next();
+        sql_life=q.value(0).toString();
     }
     else if(c_code.toInt()==4){
-        life=99999;
+        q.prepare("select product_code from inventory where product_code = '"+p_namecode+"'");                 //준비
+        q.exec();                            //실행
+        q.next();
+        p_code=q.value(0).toString();
+
+        q.prepare("update inventory set inventory_life = NULL where product_code = '"+p_code+"'");
+
+        if(q.exec()){
+            QMessageBox::critical(this, tr("Save"), tr("Saved"));
+        }
+            else{
+            QMessageBox::critical(this, tr("error::"), q.lastError().text());
+        }
     }
     else if(c_code.toInt()==5){
-        life=7;
+        stCurrentDate = stCurrentDate.addDays(7);
+        code_life=stCurrentDate;        //DB에 저장된 유통기한
+
+        q.prepare("select date_add(curdate(), interval 7 day)");                 //준비
+        q.exec();                            //실행
+        q.next();
+        sql_life=q.value(0).toString();
     }
     else if(c_code.toInt()==6){
-        life=30;
+        stCurrentDate = stCurrentDate.addDays(30);
+        code_life=stCurrentDate;        //DB에 저장된 유통기한
+
+        q.prepare("select date_add(curdate(), interval 30 day)");                 //준비
+        q.exec();                            //실행
+        q.next();
+        sql_life=q.value(0).toString();
     }
     else if(c_code.toInt()==7){
-        life=0;
+        q.prepare("select product_code from inventory where product_code = '"+p_namecode+"'");                 //준비
+        q.exec();                            //실행
+        q.next();
+        p_code=q.value(0).toString();
+
+        q.prepare("update inventory set inventory_life = NULL where product_code = '"+p_code+"'");
+
+        if(q.exec()){
+            QMessageBox::critical(this, tr("Save"), tr("Saved"));
+        }
+            else{
+            QMessageBox::critical(this, tr("error::"), q.lastError().text());
+        }
     }
     else if(c_code.toInt()==8){
-        life=180;
+        stCurrentDate = stCurrentDate.addDays(180);
+        code_life=stCurrentDate;        //DB에 저장된 유통기한
+
+        q.prepare("select date_add(curdate(), interval 180 day)");                 //준비
+        q.exec();                            //실행
+        q.next();
+        sql_life=q.value(0).toString();
     }
     else if(c_code.toInt()==9){
-        life=365;
+        stCurrentDate = stCurrentDate.addDays(365);
+        code_life=stCurrentDate;        //DB에 저장된 유통기한
+
+        q.prepare("select date_add(curdate(), interval 365 day)");                 //준비
+        q.exec();                            //실행
+        q.next();
+        sql_life=q.value(0).toString();
     }
     else{
-        life=365;
+        stCurrentDate = stCurrentDate.addDays(365);
+        code_life=stCurrentDate;        //DB에 저장된 유통기한
+
+        q.prepare("select date_add(curdate(), interval 365 day)");                 //준비
+        q.exec();                            //실행
+        q.next();
+        sql_life=q.value(0).toString();
     }
 
-    q.prepare("insert into inventory (product_code, inventory_life, inventory_number) values('"+p_code+"', curdate()+ + '"+QString::number(life)+"', '"+number+"')");
+    q.prepare("select product_code from inventory where product_code = '"+p_namecode+"'");                 //준비
+    q.exec();                            //실행
+    q.next();
+    p_code=q.value(0).toString();
 
-    if(q.exec()){
-        QMessageBox::critical(this, tr("Save"), tr("Saved"));
-    }
+    qDebug()<<p_code;
+    qDebug()<<p_namecode;
+    qDebug()<<sql_life;
+    qDebug()<<code_life.toString(Qt::ISODate);
+    if(c_code.toInt()!=4 && c_code.toInt()!=7){
+        if(p_code == p_namecode && sql_life == code_life.toString(Qt::ISODate)){
+            q.prepare("update inventory set inventory_number = (inventory_number + '"+number+"') where inventory_life = '"+sql_life+"'");                 //준비
+
+            if(q.exec()){
+                QMessageBox::critical(this, tr("Save"), tr("Saved"));
+            }
+                else{
+                QMessageBox::critical(this, tr("error::"), q.lastError().text());
+            }
+        }
         else{
-        QMessageBox::critical(this, tr("error::"), q.lastError().text());
+            q.prepare("insert into inventory (product_code, inventory_life, inventory_number) values('"+p_namecode+"', '"+sql_life+"', '"+number+"')");
+
+            if(q.exec()){
+                QMessageBox::critical(this, tr("Save"), tr("Saved"));
+            }
+                else{
+                QMessageBox::critical(this, tr("error::"), q.lastError().text());
+            }
+        }
     }
 }
 
@@ -94,6 +193,7 @@ void inventory_add::on_addbtn_clicked()
 void inventory_add::on_cartagory_comboBox_activated(int index)
 {
     ui->product_comboBox->clear();
+    ui->saleEdit->clear();
     QString queryStr, cartegory, productname, c_code;         //쿼리문 전달할 변수
     QSqlQuery query;
 

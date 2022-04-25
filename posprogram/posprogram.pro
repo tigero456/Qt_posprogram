@@ -14,7 +14,7 @@ SOURCES += \
     look.cpp \
     main.cpp \
     mainwindow.cpp \
-    sale.cpp \
+    p_delete.cpp \
     trash.cpp
 
 HEADERS += \
@@ -22,7 +22,7 @@ HEADERS += \
     inventory_add.h \
     look.h \
     mainwindow.h \
-    sale.h \
+    p_delete.h \
     trash.h
 
 FORMS += \
@@ -30,7 +30,7 @@ FORMS += \
     inventory_add.ui \
     look.ui \
     mainwindow.ui \
-    sale.ui \
+    p_delete.ui \
     trash.ui
 
 # Default rules for deployment.

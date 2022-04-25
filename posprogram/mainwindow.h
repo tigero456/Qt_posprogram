@@ -11,6 +11,7 @@
 #include "look.h"
 #include "change.h"
 #include "inventory_add.h"
+#include "p_delete.h"
 #include "trash.h"
 
 QT_BEGIN_NAMESPACE
@@ -60,6 +61,11 @@ private slots:
 
     void on_t_btn_clicked();
 
+    void on_p_searchbtn_clicked();
+
+    void on_iv_searchbtn_clicked();
+
+    void on_calbtn_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -73,8 +79,14 @@ private:
     change *c;
     trash *t;
     inventory_add *ia;
+    p_delete *pd;
+    QList<QString> p_code;
     QList<QString> p_name;
     QList<QString> p_sale;
+    QList<QString> p_cartegory;
+    QList<QString> p_i_name;
+    QList<QString> p_i_num;
+    QList<QString> iv_code;
     QList<QString> iv_name;
     QList<QString> iv_sale;
     QList<QString> iv_life;
@@ -89,6 +101,18 @@ private:
     QList<QString> n_t_num;
     QList<QString> t_code;
     QList<QString> t_date;
+    QList<QString> t_num;
+    QList<QString> s_p_code;
+    QList<QString> s_p_name;
+    QList<QString> s_p_sale;
+    QList<QString> s_p_cartegory;
+    QList<QString> s_iv_code;
+    QList<QString> s_iv_name;
+    QList<QString> s_iv_sale;
+    QList<QString> s_iv_life;
+    QList<QString> s_iv_num;
+    QList<QString> s_iv_cartegory;
+    QString tr_code;
     QList<int> num;
     int paylist=0;
 };

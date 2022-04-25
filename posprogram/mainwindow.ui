@@ -25,7 +25,9 @@
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -36,14 +38,16 @@
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>180</y>
+      <y>205</y>
       <width>100</width>
       <height>44</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -54,14 +58,16 @@
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>350</y>
+      <y>355</y>
       <width>100</width>
       <height>44</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -72,14 +78,16 @@
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>300</y>
+      <y>310</y>
       <width>100</width>
       <height>44</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -97,7 +105,9 @@
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -107,11 +117,17 @@
    <widget class="QComboBox" name="combobox">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>39</y>
+      <x>22</x>
+      <y>22</y>
       <width>69</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="acancelbtn">
@@ -125,7 +141,9 @@
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -143,7 +161,9 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
+      <family>함초롬돋움</family>
+      <pointsize>24</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -154,14 +174,16 @@
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>250</y>
+      <y>265</y>
       <width>100</width>
       <height>44</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -173,16 +195,24 @@
      <rect>
       <x>0</x>
       <y>400</y>
-      <width>495</width>
-      <height>47</height>
+      <width>481</width>
+      <height>48</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="salebtn">
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
+         <family>함초롬돋움</family>
+         <pointsize>20</pointsize>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -194,7 +224,9 @@
       <widget class="QPushButton" name="lookbtn">
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
+         <family>함초롬돋움</family>
+         <pointsize>20</pointsize>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -203,10 +235,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="lookbtn_2">
+      <widget class="QPushButton" name="calbtn">
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
+         <family>함초롬돋움</family>
+         <pointsize>20</pointsize>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -218,7 +252,9 @@
       <widget class="QPushButton" name="exitbtn">
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
+         <family>함초롬돋움</family>
+         <pointsize>20</pointsize>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -231,15 +267,17 @@
    <widget class="QLabel" name="salelist_label">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>0</y>
+      <x>150</x>
+      <y>4</y>
       <width>151</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>20</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -249,15 +287,17 @@
    <widget class="QLabel" name="basketlist_label">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>0</y>
+      <x>427</x>
+      <y>4</y>
       <width>151</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>20</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -267,16 +307,17 @@
    <widget class="QLabel" name="cartegpry_label">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>3</y>
+      <x>26</x>
+      <y>0</y>
       <width>91</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>12</pointsize>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -294,7 +335,9 @@
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>20</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -304,11 +347,17 @@
    <widget class="QTableWidget" name="product_table">
     <property name="geometry">
      <rect>
-      <x>84</x>
-      <y>39</y>
-      <width>281</width>
-      <height>351</height>
+      <x>22</x>
+      <y>50</y>
+      <width>319</width>
+      <height>339</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="logo">
@@ -322,8 +371,9 @@
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>55</pointsize>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -334,25 +384,33 @@ POS Program</string>
    <widget class="QTableWidget" name="basketlist_table">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>40</y>
-      <width>221</width>
+      <x>353</x>
+      <y>50</y>
+      <width>242</width>
       <height>251</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="inventory_addbtn">
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>130</y>
+      <y>160</y>
       <width>100</width>
       <height>44</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -363,20 +421,16 @@ POS Program</string>
     <property name="geometry">
      <rect>
       <x>14</x>
-      <y>9</y>
+      <y>59</y>
       <width>461</width>
-      <height>381</height>
+      <height>331</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QTableView" name="p_table">
-    <property name="geometry">
-     <rect>
-      <x>14</x>
-      <y>9</y>
-      <width>461</width>
-      <height>381</height>
-     </rect>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
     </property>
    </widget>
    <widget class="QTableWidget" name="pay_table">
@@ -388,6 +442,12 @@ POS Program</string>
       <height>350</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
+    </property>
    </widget>
    <widget class="QTableWidget" name="soon_t_table">
     <property name="geometry">
@@ -398,19 +458,27 @@ POS Program</string>
       <height>271</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
+    </property>
    </widget>
    <widget class="QPushButton" name="trashbtn">
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>60</y>
+      <y>40</y>
       <width>100</width>
       <height>44</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>16</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -428,7 +496,9 @@ POS Program</string>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>12</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -446,12 +516,13 @@ POS Program</string>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>40</pointsize>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
-     <string>ㅎㅇ</string>
+     <string>ㅎㅇㅋㅋ</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="t_table">
@@ -462,6 +533,12 @@ POS Program</string>
       <width>461</width>
       <height>271</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="now_trashbtn">
@@ -475,7 +552,9 @@ POS Program</string>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>12</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -491,6 +570,12 @@ POS Program</string>
       <height>271</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
+    </property>
    </widget>
    <widget class="QPushButton" name="t_btn">
     <property name="geometry">
@@ -503,11 +588,106 @@ POS Program</string>
     </property>
     <property name="font">
      <font>
+      <family>함초롬돋움</family>
       <pointsize>12</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
      <string>폐기 상품</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="p_table">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>59</y>
+      <width>461</width>
+      <height>331</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <bold>false</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="searchbox">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>22</y>
+      <width>91</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="p_searchbtn">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>22</y>
+      <width>66</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>검색</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="searchedit">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>22</y>
+      <width>179</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="iv_searchbtn">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>22</y>
+      <width>66</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>함초롬돋움</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>검색</string>
     </property>
    </widget>
   </widget>
