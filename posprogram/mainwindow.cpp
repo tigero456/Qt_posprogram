@@ -44,6 +44,9 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     ui->logo->show();
+    ui->graph_weekbtn->hide();
+    ui->graph_monthbtn->hide();
+    ui->graph_yearbtn->hide();
     ui->searchbox->addItem("이름");
     ui->searchbox->addItem("상품코드");
     ui->searchbox->addItem("분류");
@@ -51,6 +54,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->p_searchbtn->hide();
     ui->iv_searchbtn->hide();
     ui->searchedit->hide();
+    ui->journalbtn->hide();
+    ui->graphbtn->hide();
     ui->product_table->hide();
     ui->iv_table->hide();
     ui->p_table->hide();
@@ -95,6 +100,9 @@ void MainWindow::on_salebtn_clicked()
 {
     num.clear();
     paylist=0;
+    ui->graph_weekbtn->hide();
+    ui->graph_monthbtn->hide();
+    ui->graph_yearbtn->hide();
     ui->product_table->clear();
     ui->basketlist_table->clear();
     ui->product_table->setColumnCount(0);
@@ -105,6 +113,8 @@ void MainWindow::on_salebtn_clicked()
     ui->p_searchbtn->hide();
     ui->iv_searchbtn->hide();
     ui->searchedit->hide();
+    ui->journalbtn->hide();
+    ui->graphbtn->hide();
     ui->basketlist_table->clear();
     ui->product_table->clear();
     ui->logo->hide();
@@ -140,6 +150,9 @@ void MainWindow::on_salebtn_clicked()
 
 void MainWindow::on_lookbtn_clicked()
 {
+    ui->graph_weekbtn->hide();
+    ui->graph_monthbtn->hide();
+    ui->graph_yearbtn->hide();
     ui->p_table->clear();
     ui->p_table->setColumnCount(0);
     ui->p_table->setRowCount(0);
@@ -148,6 +161,8 @@ void MainWindow::on_lookbtn_clicked()
     ui->p_searchbtn->show();
     ui->iv_searchbtn->show();
     ui->searchedit->show();
+    ui->journalbtn->show();
+    ui->graphbtn->show();
     ui->product_table->hide();
     ui->iv_table->hide();
     ui->today_date_label->hide();
@@ -180,9 +195,11 @@ void MainWindow::on_lookbtn_clicked()
 
 void MainWindow::on_paybtn_clicked()
 {
+    check.clear();
     int row=ui->basketlist_table->rowCount();
     int index = ui->product_table->currentRow();
     QString p_code;                            //쿼리문 전달할 변수
+    QDate check_life = QDate::currentDate();
     QSqlQuery query;
 
     ui->pay_table->setColumnCount(3);
@@ -196,27 +213,17 @@ void MainWindow::on_paybtn_clicked()
     pay_header.append("가격");
     ui->pay_table->setHorizontalHeaderLabels(pay_header);
 
-    ui->logo->hide();
-    ui->product_table->hide();
-    ui->iv_table->hide();
-    ui->p_table->hide();
-    ui->basketlist_table->hide();
-    ui->pay_table->show();
-    ui->payhistory_label->show();
-    ui->salelist_label->hide();
-    ui->basketlist_label->hide();
-    ui->cartegpry_label->hide();
-    ui->combobox->hide();
 
     query.prepare("select (product_code) from product where product_name= '"+p_name[index]+"'");
     query.exec();                                     //실행
     query.next();
-    p_code=query.value(0).toString();
+    p_code=query.value(0).toString();       //상품테이블에서 상품코드가져오기
 
     query.prepare("select p.product_name as '상품명', p.product_sale as '가격', i.inventory_life as '유통기한', i.inventory_number as '수량' from product p join inventory i on p.product_code = i.product_code where p.product_code = '"+p_code+"'");
-    query.exec();                                     //실행
+    query.exec();                           //상품코드로 상품명, 가격, 유통기한, 수량 가져오기
 
-    QString basket_name, basket_num, b_code;
+    QString basket_name, basket_num, b_code, i_life, checkcheck;
+    check.append(QDate::fromString(i_life, "yyyy-MM-dd").daysTo(check_life));
 
     for(int i=0; i<row; i++){
         basket_name = ui->basketlist_table->item(i, 0)->text();
@@ -225,22 +232,96 @@ void MainWindow::on_paybtn_clicked()
         query.prepare("select (product_code) from product where product_name= '"+basket_name+"'");
         query.exec();
         query.next();
-        b_code=query.value(0).toString();
+        b_code=query.value(0).toString();           //장바구니 이름으로 상품코드 가져오기
 
-        query.prepare("UPDATE inventory SET inventory_number = inventory_number-'"+basket_num+"' WHERE product_code = '"+b_code+"'");
-        query.exec();                                     //실행
+        query.prepare("select min(inventory_life) from inventory where product_code= '"+b_code+"'");
+        query.exec();
+        query.next();
+        i_life=query.value(0).toString();           //상품코드로 유통기한 가져오기
+
+        check.append(QDate::fromString(i_life, "yyyy-MM-dd").daysTo(check_life));
+    }
+    checkcheck.clear();
+    for(int j=0; j<check.size(); j++){
+        if(check[j]>0){
+            checkcheck="nope";
+        }
     }
 
-    query.prepare("delete from inventory where inventory_number<=0");
+    query.prepare("select max(sales_code) from paylist");
     query.exec();
+    query.next();
+    int max_code = query.value(0).toInt();
 
-    query.prepare("insert into paylist (pay_amount) values('"+QString::number(paylist)+"')");
-    query.exec();                                     //실행
+    for(int i=0; i<row; i++){
+        basket_name = ui->basketlist_table->item(i, 0)->text();
+        basket_num = ui->basketlist_table->item(i, 2)->text();
+
+        query.prepare("select (product_code) from product where product_name= '"+basket_name+"'");
+        query.exec();
+        query.next();
+        b_code=query.value(0).toString();           //장바구니 이름으로 상품코드 가져오기
+
+        query.prepare("select min(inventory_life) from inventory where product_code= '"+b_code+"'");
+        query.exec();
+        query.next();
+        i_life=query.value(0).toString();           //상품코드로 유통기한 가져오기
+
+        if(checkcheck == "nope"){              //유통기한이 지난 상품 결제시
+            qDebug()<<i_life;
+            qDebug()<<check;
+            QMessageBox::critical(this, tr("nope"), tr("Contains expired products"));
+            break;
+        }
+        else{                           //상품 결제시
+            query.prepare("UPDATE inventory SET inventory_number = inventory_number - "+basket_num+" WHERE product_code = '"+b_code+"' and inventory_life = '"+i_life+"'");
+            query.exec();
+            qDebug()<<i_life;
+            qDebug()<<check;
+
+            query.prepare("select inventory_number from inventory where product_code = '"+b_code+"' order by inventory_life limit 0, 1");
+            query.exec();
+            query.next();
+            int numi=query.value(0).toInt();
+
+            if(numi<0){
+                query.prepare("delete from inventory where product_code = "+b_code+" and inventory_number <= 0 and inventory_life = '"+i_life+"'");
+                query.exec();                   //유통기한이 가장 많이 지난 상품 삭제 min유통기한 삭제
+
+                query.prepare("select min(inventory_life) from inventory where product_code= '"+b_code+"'");
+                query.exec();
+                query.next();
+                i_life=query.value(0).toString();           //상품코드로 현재 min유통기한 가져오기
+
+                query.prepare("UPDATE inventory SET inventory_number = inventory_number + "+QString::number(numi)+" WHERE product_code = "+b_code+" and inventory_life = '"+i_life+"'");
+                query.exec();
+            }
+            else if(numi==0){
+                query.prepare("delete from inventory where product_code = "+b_code+" and inventory_number <= 0 and inventory_life = '"+i_life+"'");
+                query.exec();                   //유통기한이 가장 많이 지난 상품 삭제 min유통기한 삭제
+            }
+
+            ui->logo->hide();
+            ui->product_table->hide();
+            ui->iv_table->hide();
+            ui->p_table->hide();
+            ui->basketlist_table->hide();
+            ui->pay_table->show();
+            ui->payhistory_label->show();
+            ui->salelist_label->hide();
+            ui->basketlist_label->hide();
+            ui->cartegpry_label->hide();
+            ui->combobox->hide();
+
+            query.prepare("insert into paylist (sales_code, product_code, sales_date, sales_time, sales_number) values("+QString::number(max_code+1)+", "+b_code+", curdate(), curtime(), '"+basket_num+"')");
+            query.exec();                                     //실행
+        }
+    }
 
     int p_num=0;
     for(int i=0; i<row; i++){
-        QString check=ui->basketlist_table->item(i, 2)->text();
-        p_num+=check.toInt();
+        QString checkk=ui->basketlist_table->item(i, 2)->text();
+        p_num+=checkk.toInt();
     }
 
     for(int i=0; i<row; i++){
@@ -255,6 +336,9 @@ void MainWindow::on_paybtn_clicked()
 
 void MainWindow::on_iv_lookbtn_clicked()
 {
+    ui->graph_weekbtn->hide();
+    ui->graph_monthbtn->hide();
+    ui->graph_yearbtn->hide();
     ui->searchbox->clear();
     ui->searchbox->addItem("이름");
     ui->searchbox->addItem("상품코드");
@@ -324,6 +408,9 @@ void MainWindow::on_iv_lookbtn_clicked()
 
 void MainWindow::on_p_lookbtn_clicked()
 {
+    ui->graph_weekbtn->hide();
+    ui->graph_monthbtn->hide();
+    ui->graph_yearbtn->hide();
     ui->searchbox->clear();
     ui->searchbox->addItem("이름");
     ui->searchbox->addItem("상품코드");
@@ -673,6 +760,9 @@ void MainWindow::on_trashbtn_clicked()
 
     ui->today_date_label->setText(date);
     ui->today_date_label->show();
+    ui->graph_weekbtn->hide();
+    ui->graph_monthbtn->hide();
+    ui->graph_yearbtn->hide();
     ui->searchbox->hide();
     ui->p_searchbtn->hide();
     ui->iv_searchbtn->hide();
@@ -746,29 +836,56 @@ void MainWindow::on_now_trashbtn_clicked()
 
 void MainWindow::Onlisttrashbtn_sensor_click(){
     tr_code.clear();
-    QString code, date;                            //쿼리문 전달할 변수
+
     QSqlQuery query;
     int index = ui->now_t_table->currentRow();
 
-    QString tr_name, tr_life;
+    QString tr_name, tr_life, tr_sale, tr_num, tr_search_name, tr_search_life;
     tr_name = ui->now_t_table->item(index, 0)->text();
+    tr_sale = ui->now_t_table->item(index, 1)->text();
     tr_life = ui->now_t_table->item(index, 2)->text();
+    tr_num = ui->now_t_table->item(index, 3)->text();
 
-    //code=QString("delete from inventory where inventory_life <= curdate()");
+    query.prepare("select max(trash_life) from trash where trash_name = '"+tr_name+"'");
+    query.exec();
+    query.next();
+    tr_search_life=query.value(0).toString();
+
+    query.prepare("select trash_name from trash where trash_name = '"+tr_name+"'");
+    query.exec();
+    query.next();
+    tr_search_name=query.value(0).toString();
+    qDebug()<<tr_name;
+    qDebug()<<tr_search_name;
+    qDebug()<<tr_life;
+    qDebug()<<tr_search_life;
+
     query.prepare("select product_code from product where product_name = '"+tr_name+"'");
     query.exec();
     query.next();
     tr_code=query.value(0).toString();
 
-    code=QString("delete from inventory where product_code = '"+tr_code+"' and inventory_life = '"+tr_life+"'");
-    query.prepare(code);                         //준비
+    query.prepare("delete from inventory where product_code = '"+tr_code+"' and inventory_life = '"+tr_life+"'");                         //준비
     query.exec();
+
+    if(tr_name==tr_search_name && tr_life==tr_search_life){
+        query.prepare("UPDATE trash SET trash_num = trash_num + "+tr_num+" WHERE trash_name = '"+tr_name+"' and trash_life = '"+tr_life+"'");
+        query.exec();
+    }
+    else{
+        query.prepare("insert into trash(trash_date, trash_name, trash_sale, trash_life, trash_num) values(now(), '"+tr_name+"', '"+tr_sale+"', '"+tr_life+"', '"+tr_num+"')");
+        query.exec();
+    }
+    on_now_trashbtn_clicked();
 }
 
 void MainWindow::on_t_btn_clicked()
 {
-    t_code.clear();
     t_date.clear();
+    t_name.clear();
+    t_sale.clear();
+    t_life.clear();
+    t_num.clear();
 
     ui->today_date_label->show();
     ui->now_t_table->hide();
@@ -780,32 +897,41 @@ void MainWindow::on_t_btn_clicked()
     ui->soon_trashbtn->show();
     ui->t_btn->show();
 
-    QString date;                            //쿼리문 전달할 변수
     QSqlQuery query;
 
     query.prepare("select * from trash");                         //준비
     query.exec();
 
     int count=0;
-    while(query.next()){                                //가져온상태.next()함수로 첫번째 변수를 가져옴
-        t_code.append(query.value(0).toString());
-        t_date.append(query.value(1).toString());
-        t_num.append(query.value(2).toString());
+    while(query.next()){                                //폐기테이블에서 데이터 몽땅 가져오기
+        t_date.append(query.value(0).toString());
+        t_name.append(query.value(1).toString());
+        t_sale.append(query.value(2).toString());
+        t_life.append(query.value(3).toString());
+        t_num.append(query.value(4).toString());
         count++;
     }
 
-    ui->t_table->setColumnCount(3);
-    ui->t_table->setRowCount(t_code.size());
+    ui->t_table->setColumnCount(5);
+    ui->t_table->setRowCount(t_date.size());
+    ui->t_table->setColumnWidth(0, 145);
+    ui->t_table->setColumnWidth(2, 60);
+    ui->t_table->setColumnWidth(3, 90);
+    ui->t_table->setColumnWidth(4, 30);
 
-    for(int i=0; i<t_code.size(); i++){
-        ui->t_table->setItem(i, 0, new QTableWidgetItem(t_code[i]));
-        ui->t_table->setItem(i, 1, new QTableWidgetItem(t_date[i]));
-        ui->t_table->setItem(i, 2, new QTableWidgetItem(t_num[i]));
+    for(int i=0; i<t_date.size(); i++){
+        ui->t_table->setItem(i, 0, new QTableWidgetItem(t_date[i]));
+        ui->t_table->setItem(i, 1, new QTableWidgetItem(t_name[i]));
+        ui->t_table->setItem(i, 2, new QTableWidgetItem(t_sale[i]));
+        ui->t_table->setItem(i, 3, new QTableWidgetItem(t_life[i]));
+        ui->t_table->setItem(i, 4, new QTableWidgetItem(t_num[i]));
     }
 
     QList<QString> trash_header;
-    trash_header.append("상품코드");
     trash_header.append("폐기날짜");
+    trash_header.append("상품명");
+    trash_header.append("상품가격");
+    trash_header.append("유통기한");
     trash_header.append("수량");
     ui->t_table->setHorizontalHeaderLabels(trash_header);
 }
@@ -1242,8 +1368,64 @@ void MainWindow::on_iv_searchbtn_clicked()
     ui->iv_table->setHorizontalHeaderLabels(inventory_header);
 }
 
-void MainWindow::on_calbtn_clicked()
+void MainWindow::on_journalbtn_clicked()
 {
+    ui->graph_weekbtn->hide();
+    ui->graph_monthbtn->hide();
+    ui->graph_yearbtn->hide();
+    ui->searchbox->hide();
+    ui->p_searchbtn->hide();
+    ui->iv_searchbtn->hide();
+    ui->searchedit->hide();
+    ui->iv_table->hide();
+    ui->today_date_label->hide();
+    ui->p_table->hide();
+    ui->soon_t_table->hide();
+    ui->now_t_table->hide();
+    ui->now_trashbtn->hide();
+    ui->soon_trashbtn->hide();
+    ui->t_table->hide();
+    ui->t_btn->hide();
+}
 
+void MainWindow::on_graphbtn_clicked()
+{
+    ui->graph_weekbtn->show();
+    ui->graph_monthbtn->show();
+    ui->graph_yearbtn->show();
+    ui->searchbox->hide();
+    ui->p_searchbtn->hide();
+    ui->iv_searchbtn->hide();
+    ui->searchedit->hide();
+    ui->iv_table->hide();
+    ui->today_date_label->hide();
+    ui->p_table->hide();
+    ui->soon_t_table->hide();
+    ui->now_t_table->hide();
+    ui->now_trashbtn->hide();
+    ui->soon_trashbtn->hide();
+    ui->t_table->hide();
+    ui->t_btn->hide();
+}
+
+
+void MainWindow::on_graph_weekbtn_clicked()
+{
+    g = new ggraph(this);
+    g->show();
+}
+
+
+void MainWindow::on_graph_monthbtn_clicked()
+{
+    gm = new graph_month(this);
+    gm->show();
+}
+
+
+void MainWindow::on_graph_yearbtn_clicked()
+{
+    gy = new graph_year(this);
+    gy->show();
 }
 

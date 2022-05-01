@@ -13,6 +13,9 @@
 #include "inventory_add.h"
 #include "p_delete.h"
 #include "trash.h"
+#include "ggraph.h"
+#include "graph_month.h"
+#include "graph_year.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -65,7 +68,16 @@ private slots:
 
     void on_iv_searchbtn_clicked();
 
-    void on_calbtn_clicked();
+    void on_journalbtn_clicked();
+
+    void on_graphbtn_clicked();
+
+
+    void on_graph_weekbtn_clicked();
+
+    void on_graph_monthbtn_clicked();
+
+    void on_graph_yearbtn_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -80,6 +92,9 @@ private:
     trash *t;
     inventory_add *ia;
     p_delete *pd;
+    ggraph *g;
+    graph_month *gm;
+    graph_year *gy;
     QList<QString> p_code;
     QList<QString> p_name;
     QList<QString> p_sale;
@@ -99,9 +114,11 @@ private:
     QList<QString> n_t_date;
     QList<QString> n_t_sale;
     QList<QString> n_t_num;
-    QList<QString> t_code;
-    QList<QString> t_date;
+    QList<QString> t_name;
+    QList<QString> t_life;
     QList<QString> t_num;
+    QList<QString> t_sale;
+    QList<QString> t_date;
     QList<QString> s_p_code;
     QList<QString> s_p_name;
     QList<QString> s_p_sale;
@@ -112,6 +129,7 @@ private:
     QList<QString> s_iv_life;
     QList<QString> s_iv_num;
     QList<QString> s_iv_cartegory;
+    QList<int> check;
     QString tr_code;
     QList<int> num;
     int paylist=0;

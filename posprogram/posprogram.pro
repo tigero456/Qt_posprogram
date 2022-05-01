@@ -3,6 +3,7 @@ QT       += core gui sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
+QT  += charts
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -10,6 +11,9 @@ CONFIG += c++17
 
 SOURCES += \
     change.cpp \
+    ggraph.cpp \
+    graph_month.cpp \
+    graph_year.cpp \
     inventory_add.cpp \
     look.cpp \
     main.cpp \
@@ -19,6 +23,9 @@ SOURCES += \
 
 HEADERS += \
     change.h \
+    ggraph.h \
+    graph_month.h \
+    graph_year.h \
     inventory_add.h \
     look.h \
     mainwindow.h \
@@ -27,6 +34,9 @@ HEADERS += \
 
 FORMS += \
     change.ui \
+    ggraph.ui \
+    graph_month.ui \
+    graph_year.ui \
     inventory_add.ui \
     look.ui \
     mainwindow.ui \

@@ -51,13 +51,11 @@ void inventory_add::on_addbtn_clicked()
     q.next();
     c_code=q.value(0).toString();
 
-    q.prepare("select inventory_life from inventory where product_code = '"+p_namecode+"'");                 //준비
+    q.prepare("select max(inventory_life) from inventory where product_code = '"+p_namecode+"'");                 //준비
     q.exec();                            //실행
-    int count=0;
-    while(q.next()){
-        sql_now_life=q.value(count).toString();       //DB에 저장된 유통기한
-        count++;
-    }
+    q.next();
+    sql_now_life=q.value(0).toString();       //DB에 저장된 유통기한
+
 
     if(c_code.toInt()==1){
         q.prepare("select date_add(curdate(), interval 180 day)");                 //준비
