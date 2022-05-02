@@ -31,53 +31,38 @@ public:
 
 private slots:
     void on_salebtn_clicked();
-
     void on_lookbtn_clicked();
-
     void on_paybtn_clicked();
-
     void on_iv_lookbtn_clicked();
-
     void on_product_addbtn_clicked();
-
     void on_product_deletebtn_clicked();
-
     void on_product_changebtn_clicked();
-
     void Onlistaddbtn_sensor_click();
-
     void Onlistdelbtn_sensor_click();
-
     void Onlisttrashbtn_sensor_click();
-
     void on_combobox_activated(int index);
-
     void on_inventory_addbtn_clicked();
-
     void on_p_lookbtn_clicked();
-
     void on_soon_trashbtn_clicked();
-
     void on_trashbtn_clicked();
-
     void on_now_trashbtn_clicked();
-
     void on_t_btn_clicked();
-
     void on_p_searchbtn_clicked();
-
     void on_iv_searchbtn_clicked();
-
     void on_journalbtn_clicked();
-
     void on_graphbtn_clicked();
-
-
     void on_graph_weekbtn_clicked();
-
     void on_graph_monthbtn_clicked();
-
     void on_graph_yearbtn_clicked();
+    void on_journal_cal_btn_clicked();
+    void on_calendarWidget_clicked(const QDate &date);
+
+    void on_journal_lookbtn_clicked();
+
+    void on_journalLeftbar_cellClicked(int row, int column);
+
+signals:
+    void Send(QString data);
 
 private:
     Ui::MainWindow *ui;
@@ -132,6 +117,7 @@ private:
     QList<int> check;
     QString tr_code;
     QList<int> num;
+    QString check_date;
     int paylist=0;
 };
 #endif // MAINWINDOW_H

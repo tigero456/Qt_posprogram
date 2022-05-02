@@ -11,7 +11,15 @@ graph_month::graph_month(QWidget *parent) :
     ui(new Ui::graph_month)
 {
     ui->setupUi(this);
+}
 
+graph_month::~graph_month()
+{
+    delete ui;
+}
+
+void graph_month::on_pushButton_clicked()
+{
     setWindowTitle("2022년 월 매출");
     setGeometry(780, 290, 400, 450);
 
@@ -91,7 +99,14 @@ graph_month::graph_month(QWidget *parent) :
     setMenuWidget(cartegorychartView);
 }
 
-graph_month::~graph_month()
+
+void graph_month::on_calendarWidget_clicked(const QDate &date)
 {
-    delete ui;
+    QDate datetmp;
+    datetmp = ui->calendarWidget->selectedDate();
+
+    check_date=datetmp.toString(Qt::ISODate);
+
+    qDebug()<<check_date;
 }
+

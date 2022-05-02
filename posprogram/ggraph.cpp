@@ -11,7 +11,15 @@ ggraph::ggraph(QWidget *parent) :
     ui(new Ui::ggraph)
 {
     ui->setupUi(this);
+}
 
+ggraph::~ggraph()
+{
+    delete ui;
+}
+
+void ggraph::on_pushButton_2_clicked()
+{
     setWindowTitle("2022년 05월 1주차 매출");
     setGeometry(780, 290, 400, 450);
 
@@ -91,7 +99,14 @@ ggraph::ggraph(QWidget *parent) :
     setMenuWidget(cartegorychartView);
 }
 
-ggraph::~ggraph()
+
+void ggraph::on_calendarWidget_clicked(const QDate &date)
 {
-    delete ui;
+    QDate datetmp;
+    datetmp = ui->calendarWidget->selectedDate();
+
+    check_date=datetmp.toString(Qt::ISODate);
+
+    qDebug()<<check_date;
 }
+

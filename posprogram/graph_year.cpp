@@ -11,7 +11,15 @@ graph_year::graph_year(QWidget *parent) :
     ui(new Ui::graph_year)
 {
     ui->setupUi(this);
+}
 
+graph_year::~graph_year()
+{
+    delete ui;
+}
+
+void graph_year::on_pushButton_2_clicked()
+{
     setWindowTitle("2022년 ~ 2025 연 매출");
     setGeometry(780, 290, 400, 450);
 
@@ -28,12 +36,12 @@ graph_year::graph_year(QWidget *parent) :
     QBarSet *set2_4 = new QBarSet("주류");
     QBarSet *set2_5 = new QBarSet("냉동식품");
 
-    *set0 << 200000;
-    *set1 << 100000;
-    *set2 << 400000;
-    *set3 << 300000;
-    *set4 << 50000;
-    *set5 << 3000;
+    *set0 <<0 <<0 <<0 << 200000;
+    *set1 <<0 <<0 <<0 << 100000;
+    *set2 <<0 <<0 <<0 << 400000;
+    *set3 <<0 <<0 <<0 << 300000;
+    *set4 <<0 <<0 <<0 << 50000;
+    *set5 <<0 <<0 <<0 << 3000;
     *set2_0 << 1000;
     *set2_1 << 2000;
     *set2_2 << 3000;
@@ -65,7 +73,7 @@ graph_year::graph_year(QWidget *parent) :
     cartegorychart->addSeries(cartegory);
 
     QStringList yearlist;
-    yearlist = {"2022", "2023", "2024", "2025"};
+    yearlist = {"2019", "2020", "2021", "2022"};
 
     QBarCategoryAxis *yearaxisX = new QBarCategoryAxis();
     yearaxisX->append(yearlist);
@@ -90,7 +98,14 @@ graph_year::graph_year(QWidget *parent) :
     setMenuWidget(cartegorychartView);
 }
 
-graph_year::~graph_year()
+
+void graph_year::on_calendarWidget_clicked(const QDate &date)
 {
-    delete ui;
+    QDate datetmp;
+    datetmp = ui->calendarWidget->selectedDate();
+
+    check_date=datetmp.toString(Qt::ISODate);
+
+    qDebug()<<check_date;
 }
+

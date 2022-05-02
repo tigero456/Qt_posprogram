@@ -44,6 +44,23 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     ui->logo->show();
+    ui->journalTopbar->hide();
+    ui->journalLeftbar->hide();
+    ui->journalRightbar->hide();
+    ui->journalTopbar_label1->hide();
+    ui->journalTopbar_label2->hide();
+    ui->journalTopbar_label3->hide();
+    ui->journalTopbar_label4->hide();
+    ui->journalTopbar_label5->hide();
+    ui->journalTopbar_label6->hide();
+    ui->journalTopbar_label7->hide();
+    ui->journalTopbar_label8->hide();
+    ui->background->hide();
+    ui->journal_lookbtn->hide();
+    ui->journal_cal_btn->hide();
+    ui->journal_date_box->hide();
+    ui->journal_date_edit->hide();
+    ui->calendarWidget->hide();
     ui->graph_weekbtn->hide();
     ui->graph_monthbtn->hide();
     ui->graph_yearbtn->hide();
@@ -100,6 +117,23 @@ void MainWindow::on_salebtn_clicked()
 {
     num.clear();
     paylist=0;
+    ui->journalTopbar->hide();
+    ui->journalLeftbar->hide();
+    ui->journalRightbar->hide();
+    ui->journalTopbar_label1->hide();
+    ui->journalTopbar_label2->hide();
+    ui->journalTopbar_label3->hide();
+    ui->journalTopbar_label4->hide();
+    ui->journalTopbar_label5->hide();
+    ui->journalTopbar_label6->hide();
+    ui->journalTopbar_label7->hide();
+    ui->journalTopbar_label8->hide();
+    ui->background->hide();
+    ui->journal_lookbtn->hide();
+    ui->journal_cal_btn->hide();
+    ui->journal_date_box->hide();
+    ui->journal_date_edit->hide();
+    ui->calendarWidget->hide();
     ui->graph_weekbtn->hide();
     ui->graph_monthbtn->hide();
     ui->graph_yearbtn->hide();
@@ -150,6 +184,23 @@ void MainWindow::on_salebtn_clicked()
 
 void MainWindow::on_lookbtn_clicked()
 {
+    ui->journalTopbar->hide();
+    ui->journalLeftbar->hide();
+    ui->journalRightbar->hide();
+    ui->journalTopbar_label1->hide();
+    ui->journalTopbar_label2->hide();
+    ui->journalTopbar_label3->hide();
+    ui->journalTopbar_label4->hide();
+    ui->journalTopbar_label5->hide();
+    ui->journalTopbar_label6->hide();
+    ui->journalTopbar_label7->hide();
+    ui->journalTopbar_label8->hide();
+    ui->background->hide();
+    ui->journal_lookbtn->hide();
+    ui->journal_cal_btn->hide();
+    ui->journal_date_box->hide();
+    ui->journal_date_edit->hide();
+    ui->calendarWidget->hide();
     ui->graph_weekbtn->hide();
     ui->graph_monthbtn->hide();
     ui->graph_yearbtn->hide();
@@ -336,6 +387,23 @@ void MainWindow::on_paybtn_clicked()
 
 void MainWindow::on_iv_lookbtn_clicked()
 {
+    ui->journalTopbar->hide();
+    ui->journalLeftbar->hide();
+    ui->journalRightbar->hide();
+    ui->journalTopbar_label1->hide();
+    ui->journalTopbar_label2->hide();
+    ui->journalTopbar_label3->hide();
+    ui->journalTopbar_label4->hide();
+    ui->journalTopbar_label5->hide();
+    ui->journalTopbar_label6->hide();
+    ui->journalTopbar_label7->hide();
+    ui->journalTopbar_label8->hide();
+    ui->background->hide();
+    ui->journal_lookbtn->hide();
+    ui->journal_cal_btn->hide();
+    ui->journal_date_box->hide();
+    ui->journal_date_edit->hide();
+    ui->calendarWidget->hide();
     ui->graph_weekbtn->hide();
     ui->graph_monthbtn->hide();
     ui->graph_yearbtn->hide();
@@ -408,6 +476,23 @@ void MainWindow::on_iv_lookbtn_clicked()
 
 void MainWindow::on_p_lookbtn_clicked()
 {
+    ui->journalTopbar->hide();
+    ui->journalLeftbar->hide();
+    ui->journalRightbar->hide();
+    ui->journalTopbar_label1->hide();
+    ui->journalTopbar_label2->hide();
+    ui->journalTopbar_label3->hide();
+    ui->journalTopbar_label4->hide();
+    ui->journalTopbar_label5->hide();
+    ui->journalTopbar_label6->hide();
+    ui->journalTopbar_label7->hide();
+    ui->journalTopbar_label8->hide();
+    ui->background->hide();
+    ui->journal_lookbtn->hide();
+    ui->journal_cal_btn->hide();
+    ui->journal_date_box->hide();
+    ui->journal_date_edit->hide();
+    ui->calendarWidget->hide();
     ui->graph_weekbtn->hide();
     ui->graph_monthbtn->hide();
     ui->graph_yearbtn->hide();
@@ -758,6 +843,23 @@ void MainWindow::on_trashbtn_clicked()
     query.next();
     date=query.value(0).toString();
 
+    ui->journalTopbar->hide();
+    ui->journalLeftbar->hide();
+    ui->journalRightbar->hide();
+    ui->journalTopbar_label1->hide();
+    ui->journalTopbar_label2->hide();
+    ui->journalTopbar_label3->hide();
+    ui->journalTopbar_label4->hide();
+    ui->journalTopbar_label5->hide();
+    ui->journalTopbar_label6->hide();
+    ui->journalTopbar_label7->hide();
+    ui->journalTopbar_label8->hide();
+    ui->background->hide();
+    ui->journal_lookbtn->hide();
+    ui->journal_cal_btn->hide();
+    ui->journal_date_box->hide();
+    ui->journal_date_edit->hide();
+    ui->calendarWidget->hide();
     ui->today_date_label->setText(date);
     ui->today_date_label->show();
     ui->graph_weekbtn->hide();
@@ -1370,6 +1472,23 @@ void MainWindow::on_iv_searchbtn_clicked()
 
 void MainWindow::on_journalbtn_clicked()
 {
+    ui->journalTopbar->hide();
+    ui->journalLeftbar->hide();
+    ui->journalRightbar->hide();
+    ui->journalTopbar_label1->hide();
+    ui->journalTopbar_label2->hide();
+    ui->journalTopbar_label3->hide();
+    ui->journalTopbar_label4->hide();
+    ui->journalTopbar_label5->hide();
+    ui->journalTopbar_label6->hide();
+    ui->journalTopbar_label7->hide();
+    ui->journalTopbar_label8->hide();
+    ui->background->show();
+    ui->journal_lookbtn->show();
+    ui->journal_cal_btn->show();
+    ui->journal_date_box->show();
+    ui->journal_date_edit->show();
+    ui->calendarWidget->hide();
     ui->graph_weekbtn->hide();
     ui->graph_monthbtn->hide();
     ui->graph_yearbtn->hide();
@@ -1386,10 +1505,39 @@ void MainWindow::on_journalbtn_clicked()
     ui->soon_trashbtn->hide();
     ui->t_table->hide();
     ui->t_btn->hide();
+
+    QString code, date;                            //쿼리문 전달할 변수
+    QSqlQuery query;
+
+    code=QString("select curdate()");
+    query.prepare(code);                         //준비
+    query.exec();
+    query.next();
+    date=query.value(0).toString();
+
+    ui->journal_date_edit->setText(date);
 }
 
 void MainWindow::on_graphbtn_clicked()
 {
+    ui->journalTopbar->hide();
+    ui->journalLeftbar->hide();
+    ui->journalRightbar->hide();
+    ui->journalTopbar_label1->hide();
+    ui->journalTopbar_label2->hide();
+    ui->journalTopbar_label3->hide();
+    ui->journalTopbar_label4->hide();
+    ui->journalTopbar_label5->hide();
+    ui->journalTopbar_label6->hide();
+    ui->journalTopbar_label7->hide();
+    ui->journalTopbar_label8->hide();
+    ui->background->hide();
+    ui->journal_lookbtn->hide();
+    ui->journal_cal_btn->hide();
+    ui->journal_date_box->hide();
+    ui->journal_date_edit->hide();
+    ui->calendarWidget->hide();
+    ui->calendarWidget->hide();
     ui->graph_weekbtn->show();
     ui->graph_monthbtn->show();
     ui->graph_yearbtn->show();
@@ -1408,13 +1556,11 @@ void MainWindow::on_graphbtn_clicked()
     ui->t_btn->hide();
 }
 
-
 void MainWindow::on_graph_weekbtn_clicked()
 {
     g = new ggraph(this);
     g->show();
 }
-
 
 void MainWindow::on_graph_monthbtn_clicked()
 {
@@ -1422,10 +1568,205 @@ void MainWindow::on_graph_monthbtn_clicked()
     gm->show();
 }
 
-
 void MainWindow::on_graph_yearbtn_clicked()
 {
     gy = new graph_year(this);
     gy->show();
+}
+
+void MainWindow::on_journal_cal_btn_clicked()
+{
+    ui->background->hide();
+    ui->journal_lookbtn->hide();
+    ui->journal_cal_btn->hide();
+    ui->journal_date_box->hide();
+    ui->calendarWidget->show();
+    ui->journal_date_edit->hide();
+}
+
+void MainWindow::on_calendarWidget_clicked(const QDate &date)
+{
+    ui->background->show();
+    ui->journal_lookbtn->show();
+    ui->journal_cal_btn->show();
+    ui->journal_date_box->show();
+    ui->calendarWidget->hide();
+    ui->journal_date_edit->show();
+
+    QDate datetmp;
+    datetmp = ui->calendarWidget->selectedDate();
+
+    check_date=datetmp.toString(Qt::ISODate);
+    ui->journal_date_edit->setText(check_date);
+}
+
+void MainWindow::on_journal_lookbtn_clicked()
+{
+    QList<QString> sale_code, sale_time, check_code, pp_code;
+    QList<int> sum_number, sale_num, final_money;
+    sum_number.clear();
+    sale_code.clear();
+    sale_time.clear();
+    check_code.clear();
+    pp_code.clear();
+    sale_num.clear();
+    final_money.clear();
+
+    QSqlQuery query;
+    QDate check_life = QDate::currentDate();
+
+    if(QDate::fromString(ui->journal_date_edit->text(), "yyyy-MM-dd").daysTo(check_life)<0){
+        QMessageBox::critical(this, tr("nope"), tr("No choice after today"));
+        on_journalbtn_clicked();
+    }
+    else{
+        ui->journalRightbar->setColumnCount(0);
+        ui->journalRightbar->setRowCount(0);
+        ui->journalLeftbar->clear();
+        ui->journalRightbar->clear();
+        ui->background->hide();
+        ui->journal_lookbtn->hide();
+        ui->journal_cal_btn->hide();
+        ui->journal_date_box->hide();
+        ui->calendarWidget->hide();
+        ui->journal_date_edit->hide();
+        ui->journalTopbar->show();
+        ui->journalLeftbar->show();
+        ui->journalRightbar->show();
+        ui->journalTopbar_label1->show();
+        ui->journalTopbar_label2->show();
+        ui->journalTopbar_label3->show();
+        ui->journalTopbar_label4->show();
+        ui->journalTopbar_label5->show();
+        ui->journalTopbar_label6->show();
+        ui->journalTopbar_label7->show();
+        ui->journalTopbar_label8->show();
+
+        query.prepare("select curdate()");
+        query.exec();
+        query.next();
+
+        ui->journalTopbar_label2->setText(ui->journal_date_edit->text());
+        ui->journalTopbar_label4->setText(query.value(0).toString());
+        ui->journalTopbar_label6->setText(query.value(0).toString());
+
+
+        query.prepare("select distinct sales_code, sales_time from paylist where sales_date = '"+ui->journal_date_edit->text()+"'");                         //준비
+        query.exec();
+        int i=0;
+        while(query.next()){
+            sale_code.append(query.value(0).toString());
+            sale_time.append(query.value(1).toString());
+            i++;
+        }
+
+        query.prepare("select sales_code, sales_number, product_code from paylist where sales_date = '"+ui->journal_date_edit->text()+"'");                         //준비
+        query.exec();
+        int k=0;
+        while(query.next()){
+            check_code.append(query.value(0).toString());
+            sale_num.append(query.value(1).toInt());
+            pp_code.append(query.value(2).toString());
+            k++;
+        }
+
+        int m=0;
+        for(int l=0; l<k; l++){
+            if(l==0){
+                sum_number.append(0);
+                query.prepare("select product_sale from product where product_code = "+pp_code[l]+"");                         //준비
+                query.exec();
+                query.next();
+                sum_number[m]+=(sale_num[l] * query.value(0).toInt());
+            }
+            else{
+                if(check_code[l]==check_code[l-1]){
+                    qDebug()<<k;
+                    query.prepare("select product_sale from product where product_code = "+pp_code[l]+"");                         //준비
+                    query.exec();
+                    query.next();
+                    sum_number[m]+=(sale_num[l] * query.value(0).toInt());
+                }
+                else{
+                    final_money.append(0);
+                    final_money[m]+=sum_number[m];
+                    m++;
+                    sum_number.append(0);
+                    query.prepare("select product_sale from product where product_code = "+pp_code[l]+"");                         //준비
+                    query.exec();
+                    query.next();
+                    sum_number[m]+=(sale_num[l] * query.value(0).toInt());
+                }
+            }
+        }
+        final_money.append(0);
+        final_money[m]+=sum_number[m];
+
+        for(int j=0; j<i; j++){
+            ui->journalLeftbar->setColumnCount(4);
+            ui->journalLeftbar->setRowCount(i);
+            ui->journalLeftbar->setColumnWidth(0, 80);
+            ui->journalLeftbar->setColumnWidth(1, 50);
+            ui->journalLeftbar->setColumnWidth(2, 60);
+            ui->journalLeftbar->setColumnWidth(3, 95);
+
+            ui->journalLeftbar->setItem(j, 0, new QTableWidgetItem(ui->journal_date_edit->text()));
+            ui->journalLeftbar->setItem(j, 1, new QTableWidgetItem(sale_code[j]));
+            ui->journalLeftbar->setItem(j, 2, new QTableWidgetItem(sale_time[j]));
+            ui->journalLeftbar->setItem(j, 3, new QTableWidgetItem(QString::number(final_money[j])));
+        }
+
+        QList<QString> journal_header;
+        journal_header.append("조회날짜");
+        journal_header.append("거래NO");
+        journal_header.append("시간");
+        journal_header.append("합계금액");
+        ui->journalLeftbar->setHorizontalHeaderLabels(journal_header);
+
+    }
+}
+
+void MainWindow::on_journalLeftbar_cellClicked(int row, int column)
+{
+    ui->journalRightbar->clear();
+    ui->journalTopbar_label6->setText(ui->journalLeftbar->item(row, 1)->text());
+    ui->journalTopbar_label8->setText(ui->journalLeftbar->item(row, 3)->text());
+    QList<QString> pp_code, sale_number, pp_name, pp_sale;
+    QSqlQuery query;
+
+    query.prepare("select product_code, sales_number from paylist where sales_code = "+ui->journalLeftbar->item(row, 1)->text()+"");
+    query.exec();
+    int i=0;
+    while(query.next()){
+        pp_code.append(query.value(0).toString());
+        sale_number.append(query.value(1).toString());
+        i++;
+    }
+
+    for(int j=0; j<i; j++){
+        query.prepare("select product_name, product_sale from product where product_code = "+pp_code[j]+"");
+        query.exec();
+        query.next();
+        pp_name.append(query.value(0).toString());
+        pp_sale.append(query.value(1).toString());
+    }
+
+    for(int j=0; j<i; j++){
+        ui->journalRightbar->setColumnCount(3);
+        ui->journalRightbar->setRowCount(i);
+        ui->journalRightbar->setColumnWidth(0, 60);
+        ui->journalRightbar->setColumnWidth(1, 30);
+        ui->journalRightbar->setColumnWidth(2, 53);
+
+        ui->journalRightbar->setItem(j, 0, new QTableWidgetItem(pp_name[j]));
+        ui->journalRightbar->setItem(j, 1, new QTableWidgetItem(sale_number[j]));
+        ui->journalRightbar->setItem(j, 2, new QTableWidgetItem(pp_sale[j]));
+    }
+
+    QList<QString> journalRight_header;
+    journalRight_header.append("상품명");
+    journalRight_header.append("NO");
+    journalRight_header.append("합계금액");
+    ui->journalRightbar->setHorizontalHeaderLabels(journalRight_header);
 }
 
